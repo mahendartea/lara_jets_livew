@@ -132,16 +132,25 @@ return [
     */
 
     'features' => [
-         Features::registration(),
+        Features::registration(),
         // Features::resetPasswords(),
         // Features::emailVerification(),
         Features::updateProfileInformation(),
         Features::updatePasswords(),
-//        Features::twoFactorAuthentication([
-//            'confirm' => true,
-//            'confirmPassword' => true,
-//            // 'window' => 0,
-//        ]),
+        Features::twoFactorAuthentication([
+            'confirm' => true,
+            'confirmPassword' => true,
+            // 'window' => 0,
+        ]),
+
     ],
+    //        membatasi jumlah login
+    'rate_limiting' => [
+        'decay_minutes' => 60,
+        'max_attempts' => 5,
+        'lockout_seconds' => 60,
+        'throttle_users' => true,
+    ],
+
 
 ];

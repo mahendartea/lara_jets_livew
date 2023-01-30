@@ -30,15 +30,13 @@ Route::middleware([
 
 Route::group(['middleware' => 'auth'], function () {
     Route::group(['middleware' => 'role:pengguna', 'prefix' => 'pengguna', 'as' => 'pengguna.'], function () {
-        // Route::resource('lessons', \App\Http\Controllers\Students\LessonController::class);
+        Route::resource('profile', \App\Http\Controllers\Pengguna\ProfileController::class);
     });
     Route::group(['middleware' => 'role:petugas', 'prefix' => 'petugas', 'as' => 'petugas.'], function () {
-        // Route::resource('courses', \App\Http\Controllers\Teachers\CourseController::class);
-        // Route::resource('researches', \App\Http\Controllers\Teachers\ResearchController::class);
-        // Route::resource('dedications', \App\Http\Controllers\Teachers\DedicationController::class);
+        Route::resource('users', \App\Http\Controllers\Petugas\UserController::class);
     });
     Route::group(['middleware' => 'role:admin', 'prefix' => 'admin', 'as' => 'admin.'], function () {
-            Route::resource('users', \App\Http\Controllers\Admin\UserController::class);
+        Route::resource('users', \App\Http\Controllers\Admin\UserController::class);
         //    Route::resource('ptns', \App\Http\Controllers\Admin\DataptnController::class);
         //    Route::resource('lms', \App\Http\Controllers\Admin\LmsController::class);
         //    Route::resource('configure', \App\Http\Controllers\Admin\ConfigController::class);

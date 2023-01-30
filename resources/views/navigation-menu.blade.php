@@ -18,11 +18,29 @@
                     </x-jet-nav-link>
                 </div>
 
+                @can('manage-profile')
+                    <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
+                        <x-jet-nav-link href="{{ route('pengguna.profile.index') }}"
+                                        :active="request()->routeIs('pengguna.profile.index')">
+                            {{ __('Profile') }}
+                        </x-jet-nav-link>
+                    </div>
+                @endcan
+
                 @can('manage-users')
                     <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
                         <x-jet-nav-link href="{{ route('admin.users.index') }}"
                                         :active="request()->routeIs('admin.users.index')">
                             {{ __('Pengguna') }}
+                        </x-jet-nav-link>
+                    </div>
+                @endcan
+
+                @can('manage-userpetugas')
+                    <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
+                        <x-jet-nav-link href="{{ route('petugas.users.index') }}"
+                                        :active="request()->routeIs('petugas.users.index')">
+                            {{ __('Kelola Pengguna') }}
                         </x-jet-nav-link>
                     </div>
                 @endcan
