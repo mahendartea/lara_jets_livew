@@ -37,12 +37,5 @@ Route::group(['middleware' => 'auth'], function () {
     });
     Route::group(['middleware' => 'role:admin', 'prefix' => 'admin', 'as' => 'admin.'], function () {
         Route::resource('users', \App\Http\Controllers\Admin\UserController::class);
-        //    Route::resource('ptns', \App\Http\Controllers\Admin\DataptnController::class);
-        //    Route::resource('lms', \App\Http\Controllers\Admin\LmsController::class);
-        //    Route::resource('configure', \App\Http\Controllers\Admin\ConfigController::class);
-        //    Route::get('/lecturer', [LecturerController::class, 'index']);
-        // Route::name('users.')->group(function () {
-        //     Route::get('/lecturer', [LecturerController::class, 'index'])->name('lecturer');
-        // });
     });
 });
